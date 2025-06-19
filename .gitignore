@@ -1,0 +1,11 @@
+# Microsoft Visual Studio Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# bazel
+bazel-bin
+bazel-out
+bazel-playground
+bazel-testlogs
