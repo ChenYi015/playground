@@ -9,3 +9,8 @@ bazel-bin
 bazel-out
 bazel-playground
 bazel-testlogs
+
+# Scala
+.bsp/
+.metals/
+.scala-build/
