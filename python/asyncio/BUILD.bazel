@@ -1,0 +1,26 @@
+load("@rules_python//python:defs.bzl", "py_binary")
+
+py_binary(
+    name = "example1",
+    srcs = ["example1.py"],
+)
+
+py_binary(
+    name = "example2",
+    srcs = ["example2.py"],
+)
+
+py_binary(
+    name = "example3",
+    srcs = ["example3.py"],
+)
+
+py_binary(
+    name = "example4",
+    srcs = ["example4.py"],
+)
+
+py_binary(
+    name = "example5",
+    srcs = ["example5.py"],
+)
