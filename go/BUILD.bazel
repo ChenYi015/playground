@@ -1,0 +1,11 @@
+load("@rules_go//go:def.bzl", "go_binary")
+
+go_binary(
+    name = "hello",
+    srcs = ["hello/hello.go"],
+)
+
+go_binary(
+    name = "defer",
+    srcs = ["defer/defer.go"],
+)
