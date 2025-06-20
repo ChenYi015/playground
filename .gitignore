@@ -14,6 +14,7 @@ bazel-testlogs
 .bsp/
 .metals/
 .scala-build/
+*.class
 
 # Tool binaries
 bin/
