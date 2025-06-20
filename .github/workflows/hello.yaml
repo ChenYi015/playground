@@ -52,6 +52,8 @@ jobs:
         with:
           images: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REPOSITORY }}
           tags: |
+            # Add the 'latest' tag.
+            type=raw,value=latest
             # Use Git short commit SHA as tag.
             type=sha,prefix=
 
