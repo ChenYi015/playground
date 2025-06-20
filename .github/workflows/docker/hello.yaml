@@ -1,0 +1,77 @@
+# The name of the workflow displayed in the Actions tab.
+name: Build and push Docker images
+
+on:
+  # When using the push event, you can configure a workflow to run on specific branches.
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  # When using the push and pull_request events, you can configure a workflow to run based on what file paths are changed.
+  paths:
+    - docker/hello/Dockerfile
+    - docker/hello/hello.sh
+
+# A map of variables that are available to the steps of all jobs in the workflow.
+env:
+  IMAGE_REGISTRY: ghcr.io
+  IMAGE_REPOSITORY: chenyi015/hello
+  PLATFORMS: linux/amd64,linux/arm64
+
+# A workflow run is made up of one or more jobs, which run in parallel by default.
+jobs:
+  hello:
+    # The name of the job displayed in the Actions tab.
+    name: Hello
+
+    # The type of runner that the job will run on.
+    runs-on: ubuntu-24.04
+
+    # A job contains a sequence of tasks called steps.
+    steps:
+      # Checkout the repository.
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Extract metadata from Git reference and GitHub events, see https://github.com/marketplace/actions/docker-metadata-action.
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        env:
+          # Set Git short commit SHA length to 8 characters (default is 7).
+          DOCKER_METADATA_SHORT_SHA_LENGTH: 8
+        with:
+          images: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_REPOSITORY }}
+          tags: |
+            # Use Git short commit SHA as tag.
+            type=sha,prefix=
+
+      # Install QEMU static binaries, see https://github.com/marketplace/actions/docker-setup-qemu.
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      # Set up Docker Buildx, see https://github.com/marketplace/actions/docker-setup-buildx.
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Login against a docker registry, see https://github.com/marketplace/actions/docker-login.
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.IMAGE_REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Build and push Docker image with Docker Buildx, see https://github.com/marketplace/actions/build-and-push-docker-images.
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: docker/hello
+          platforms: ${{ IMAGE_PLATFORMS }}
+          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          push: ${{ github.event_name == 'push' }}
