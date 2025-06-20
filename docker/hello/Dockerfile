@@ -1,14 +1,14 @@
 # Define an argument for the base image.
 # One can specify a different base image by adding `--build-arg BASE_IMAGE=xxx` flag when `docker build` the image.
-ARG BASE_IMAGE=alpine:latest
+ARG BASE_IMAGE=alpine:3.22.0
 
 # Build from the specified base image.
 FROM ${BASE_IMAGE}
 
 # Metadata
-LABEL maintainer="name <email@example.com>"
+LABEL KEY1=VALUE1 KEY2=VALUE2
 
-ENV KEY1=VALUE1 KEY2=VALUE2
+ENV NAME="World"
 
 # Set the working directory.
 WORKDIR /opt/
