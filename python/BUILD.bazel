@@ -1,6 +1,16 @@
-load("@rules_python//python:defs.bzl", "py_binary")
+load("@rules_python//python:defs.bzl", "py_binary", "py_test")
 
 py_binary(
     name = "hello",
     srcs = ["hello.py"],
+)
+
+py_test(
+    name = "math_operations",
+    srcs = [
+        "math_operations.py",
+        "tests/test_math_operations.py",
+    ],
+    imports = ["."],
+    main = "test_math_operations.py",
 )
