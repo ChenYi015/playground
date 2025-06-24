@@ -1,0 +1,16 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+sh_binary(
+    name = "hello",
+    srcs = ["hello.sh"],
+)
+
+sh_binary(
+    name = "for-loop",
+    srcs = ["for-loop.sh"],
+)
+
+sh_binary(
+    name = "function",
+    srcs = ["function.sh"],
+)
