@@ -10,6 +10,11 @@ bazel-out
 bazel-playground
 bazel-testlogs
 
+# Cython
+build/
+python/cython/*.c
+python/cython/*.so
+
 # Scala
 .bsp/
 .metals/
