@@ -17,3 +17,9 @@ go_binary(
     srcs = ["example3/main.go"],
     cgo = True,
 )
+
+go_binary(
+    name = "example4",
+    srcs = glob(["example4/*"]),
+    cgo = True,
+)
