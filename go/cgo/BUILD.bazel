@@ -5,3 +5,9 @@ go_binary(
     srcs = ["example1/main.go"],
     cgo = True,
 )
+
+go_binary(
+    name = "example2",
+    srcs = ["example2/main.go"],
+    cgo = True,
+)
