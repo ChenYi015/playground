@@ -1,5 +1,6 @@
 # Microsoft Visual Studio Code
 .vscode/
+.idea/
 
 # MacOS
 .DS_Store
@@ -21,8 +22,10 @@ python/cython/*.so
 
 # Scala
 .bsp/
+.bloop/
 .metals/
 .scala-build/
+target/
 *.class
 
 # Tool binaries
