@@ -1,0 +1,22 @@
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("@rules_cc//cc:cc_test.bzl", "cc_test")
+
+cc_library(
+    name = "factorial",
+    srcs = ["factorial.cc"],
+    hdrs = ["factorial.h"],
+    visibility = ["//visibility:public"],
+)
+
+cc_test(
+    name = "factorial_test",
+    srcs = ["factorial_test.cc"],
+    copts = [
+        "-Iexternal/gtest/googletest/include",
+        "-Iexternal/gtest/googletest",
+    ],
+    deps = [
+        "//cpp/src:factorial",
+        "@googletest//:gtest_main",
+    ],
+)
