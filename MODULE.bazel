@@ -14,4 +14,5 @@ bazel_dep(name = "rules_python", version = "1.4.1")
 bazel_dep(name = "rules_shell", version = "0.5.0")
 
 bazel_dep(name = "abseil-cpp", version = "20250512.0")
+bazel_dep(name = "boost.asio", version = "1.89.0")
 bazel_dep(name = "googletest", version = "1.15.2")
