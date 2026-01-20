@@ -1,0 +1,13 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+# I/O Operations Examples
+
+cc_binary(
+    name = "iostream",
+    srcs = ["iostream.cc"],
+)
+
+cc_binary(
+    name = "fstream",
+    srcs = ["fstream.cc"],
+)

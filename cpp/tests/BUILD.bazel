@@ -1,6 +1,6 @@
-load("@rules_cc//cc:cc_library.bzl", "cc_library")
-load("@rules_cc//cc:cc_test.bzl", "cc_test")
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
 
+# Test library
 cc_library(
     name = "factorial",
     srcs = ["factorial.cc"],
@@ -8,15 +8,13 @@ cc_library(
     visibility = ["//visibility:public"],
 )
 
+# Unit tests
 cc_test(
     name = "factorial_test",
+    size = "small",
     srcs = ["factorial_test.cc"],
-    copts = [
-        "-Iexternal/gtest/googletest/include",
-        "-Iexternal/gtest/googletest",
-    ],
     deps = [
-        "//cpp/src:factorial",
+        ":factorial",
         "@googletest//:gtest_main",
     ],
 )

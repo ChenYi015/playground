@@ -1,0 +1,57 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+# Boost.Asio Networking and Async I/O Examples
+
+cc_binary(
+    name = "timer1",
+    srcs = ["timer1.cc"],
+    deps = ["@boost//:asio"],
+)
+
+cc_binary(
+    name = "timer2",
+    srcs = ["timer2.cc"],
+    deps = ["@boost//:asio"],
+)
+
+cc_binary(
+    name = "timer3",
+    srcs = ["timer3.cc"],
+    deps = ["@boost//:asio"],
+)
+
+cc_binary(
+    name = "timer4",
+    srcs = ["timer4.cc"],
+    deps = ["@boost//:asio"],
+)
+
+cc_binary(
+    name = "timer5",
+    srcs = ["timer5.cc"],
+    deps = ["@boost//:asio"],
+)
+
+cc_binary(
+    name = "daytime1",
+    srcs = ["daytime1.cc"],
+    deps = ["@boost//:asio"],
+)
+
+cc_binary(
+    name = "daytime2",
+    srcs = ["daytime2.cc"],
+    deps = ["@boost//:asio"],
+)
+
+cc_binary(
+    name = "sync_client",
+    srcs = ["sync_client.cc"],
+    deps = ["@boost//:asio"],
+)
+
+cc_binary(
+    name = "sync_server",
+    srcs = ["sync_server.cc"],
+    deps = ["@boost//:asio"],
+)

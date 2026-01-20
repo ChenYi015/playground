@@ -1,52 +1,14 @@
-load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+# C++ Playground - Reorganized by Topic
+#
+# Structure:
+#   language-features/   - C++ language feature demonstrations
+#   concurrency/         - Threading and concurrency examples
+#   io-operations/       - File I/O examples
+#   networking/          - Network programming
+#   third-party-libs/    - Examples using external libraries
+#   tests/               - Unit tests
+#   build-systems/       - Build system documentation and configs
+#
+# See subdirectories for specific BUILD.bazel files
 
-cc_binary(
-    name = "hello",
-    srcs = ["hello.cc"],
-)
-
-cc_binary(
-    name = "foreach",
-    srcs = ["foreach.cc"],
-)
-
-cc_binary(
-    name = "auto",
-    srcs = ["auto.cc"],
-)
-
-cc_binary(
-    name = "lambda",
-    srcs = ["lambda.cc"],
-    deps = ["@abseil-cpp//absl/strings"],
-)
-
-cc_binary(
-    name = "shared_ptr",
-    srcs = ["shared_ptr.cc"],
-)
-
-cc_binary(
-    name = "default_parameter",
-    srcs = ["default_parameter.cc"],
-)
-
-cc_binary(
-    name = "explicit",
-    srcs = ["explicit.cc"],
-)
-
-cc_binary(
-    name = "left_right_reference",
-    srcs = ["left_right_reference.cc"],
-)
-
-cc_binary(
-    name = "static_member",
-    srcs = ["static_member.cc"],
-)
-
-cc_binary(
-    name = "threads",
-    srcs = ["threads.cc"],
-)
+exports_files(["CMakeLists.txt"])

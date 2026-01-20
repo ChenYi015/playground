@@ -1,0 +1,84 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+# Language Features Examples
+
+cc_binary(
+    name = "hello",
+    srcs = ["hello.cc"],
+)
+
+cc_binary(
+    name = "auto",
+    srcs = ["auto.cc"],
+)
+
+cc_binary(
+    name = "lambda",
+    srcs = ["lambda.cc"],
+    deps = ["@abseil-cpp//absl/strings"],
+)
+
+cc_binary(
+    name = "foreach",
+    srcs = ["foreach.cc"],
+)
+
+cc_binary(
+    name = "shared_ptr",
+    srcs = ["shared_ptr.cc"],
+)
+
+cc_binary(
+    name = "shared_ptr2",
+    srcs = ["shared_ptr2.cc"],
+)
+
+cc_binary(
+    name = "shared_ptr3",
+    srcs = ["shared_ptr3.cc"],
+)
+
+cc_binary(
+    name = "optional",
+    srcs = ["optional.cc"],
+)
+
+cc_binary(
+    name = "left_right_reference",
+    srcs = ["left_right_reference.cc"],
+)
+
+cc_binary(
+    name = "default_parameter",
+    srcs = ["default_parameter.cc"],
+)
+
+cc_binary(
+    name = "explicit",
+    srcs = ["explicit.cc"],
+)
+
+cc_binary(
+    name = "static_member",
+    srcs = ["static_member.cc"],
+)
+
+cc_binary(
+    name = "function",
+    srcs = ["function.cc"],
+)
+
+cc_binary(
+    name = "function2",
+    srcs = ["function2.cc"],
+)
+
+cc_binary(
+    name = "function3",
+    srcs = ["function3.cc"],
+)
+
+cc_binary(
+    name = "function4",
+    srcs = ["function4.cc"],
+)
